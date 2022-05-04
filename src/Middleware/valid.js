@@ -1,4 +1,4 @@
-const collageModel = require('../models/collageModel');
+const collageModel = require('../models/collegeModel');   
 
 const validatecollage = async function (req, res, next) {
     try {
