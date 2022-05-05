@@ -8,6 +8,7 @@ const { validatecollage } = require("../Middleware/valid");
 
 router.post('/functionup/colleges', validatecollage, collegeController.createCollege);
 router.post('/functionup/interns', internController.createIntern);
+router.get('/functionup/collegeDetails', collegeController.getCollegedetail)
 
 
 module.exports = router;
