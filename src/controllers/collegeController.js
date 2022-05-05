@@ -1,20 +1,19 @@
 const collegeModel = require('../models/collegeModel');
-const internModel = require('../models/internModel')
+const internModel = require('../models/internModel');
 
-const createCollege = async function (req, res) {
+const createCollege = async function(req, res) {
     try {
         let saveData = await collegeModel.create(req.body);
         res.status(201).send({ status: true, msg: saveData });
-    }
-    catch (err) {
+    } catch (err) {
         res.status(500).send({ status: false, msg: err.message });
     }
 }
-module.exports.createCollege = createCollege;
 
-///////////////////////////////////////get college details/////////////////////////////////////////////////////////////////////////////////
 
-const getCollegedatail = async(req, res) => {
+//--------------------------------------get Collegedatail----------------------------------------------------
+
+const getCollegedetail = async function(req, res) {
     try {
         const collegeName = req.query.collegeName;
         if (!collegeName) {
@@ -45,5 +44,4 @@ const getCollegedatail = async(req, res) => {
 
 };
 
-
-module.exports.getCollegedatail = getCollegedatail
+module.exports = { createCollege, getCollegedetail };

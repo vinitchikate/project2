@@ -15,8 +15,7 @@ const validatecollage = async function (req, res, next) {
             if (data.logoLink === undefined) {
                 return res.status(400).send({ status: false, msg: "logoLink Missing!!" });
             }
-        }
-        else {
+        } else {
             return res.status(400).send({ msg: "Mandatory field Missing!!" })
         }
 
@@ -35,27 +34,10 @@ const validatecollage = async function (req, res, next) {
         } else {
             next()
         }
-    }
-    catch (err) {
+    } catch (err) {
         return res.status(500).send({ status: false, msg: err.message });
     }
 }
 
 
 module.exports.validatecollage = validatecollage;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

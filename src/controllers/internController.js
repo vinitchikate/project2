@@ -8,7 +8,7 @@ function onlySpaces(str) {
     return /^\s*$/.test(str);
 }
 //--------------------------------------------------------------------------------------------------
-const createIntern = async(req, res) => {
+const createIntern = async (req, res) => {
     try {
         let data = req.body;
 
