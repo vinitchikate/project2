@@ -1,9 +1,12 @@
-const collageModel = require('../models/collegeModel');   
+const collageModel = require('../models/collegeModel');
+
+
+
 
 const validatecollage = async function (req, res, next) {
     try {
         let data = req.body
-        const { name, fullName, logoLink} = data
+        const { name, fullName, logoLink } = data
 
         if (Object.keys(data).length != 0) {
             if (data.name === undefined) {
@@ -23,8 +26,8 @@ const validatecollage = async function (req, res, next) {
         if (Object.values(name).length <= 0) {
             return res.status(400).send("The name is required");
         }
-        let collageName = await collageModel.findOne({name:name})
-        if(collageName){
+        let collageName = await collageModel.findOne({ name: name })
+        if (collageName) {
             return res.status(400).send("This Name is already exists");
         }
         if (Object.values(fullName).length <= 0) {
@@ -40,9 +43,9 @@ const validatecollage = async function (req, res, next) {
         return res.status(500).send({ status: false, msg: err.message });
     }
 }
+
+
 module.exports.validatecollage = validatecollage;
-
-
 
 
 
