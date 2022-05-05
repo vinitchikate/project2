@@ -1,12 +1,10 @@
-
 const mongoose = require('mongoose');
-
 const collageSchema = new mongoose.Schema(
     {
         name: {
             type: String,
             required: true,
-            unique:true
+            unique: true
         },
         fullName: {
             type: String,
@@ -17,9 +15,9 @@ const collageSchema = new mongoose.Schema(
             required: true
         },
         isDeleted: {
-            type:Boolean, 
+            type: Boolean,
             default: false
         }
-    }, { timestamps:true });
+    }, { timestamps: true });
 
 module.exports = mongoose.model('Collage', collageSchema)
