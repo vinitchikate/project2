@@ -1,5 +1,4 @@
 const mongoose = require("mongoose");
-//const collegeModel = require("../models/collegeModel");
 const ObjectId = mongoose.Schema.Types.ObjectId;
 
 const internSchema = new mongoose.Schema({

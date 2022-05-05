@@ -55,7 +55,14 @@ const createIntern = async(req, res) => {
                 return res.status(400).send({ status: false, msg: "please enter valid mobile number" });
             }
 
-
+            // mobile duplication check
+            let mobiledb = await internModel.findOne({ mobile: data.mobile }, { mobile: 1, _id: 0 });
+            if (mobiledb) {
+                return res.status(400).send({
+                    status: false,
+                    msg: "We are sorry; this mobile is already registered"
+                });
+            }
 
             //email validation
             if (!data.email) {
