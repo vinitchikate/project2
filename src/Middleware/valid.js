@@ -1,6 +1,6 @@
 const collageModel = require('../models/collegeModel');
 
-const validatecollage = async function (req, res, next) {
+const validatecollage = async function(req, res, next) {
     try {
         let data = req.body
         const { name, fullName, logoLink } = data

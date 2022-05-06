@@ -20,4 +20,4 @@ const collageSchema = new mongoose.Schema({
     }
 }, { timestamps: true });
 
-module.exports = mongoose.model('Collage', collageSchema)
+module.exports = mongoose.model('Collage', collageSchema);
