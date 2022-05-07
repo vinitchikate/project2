@@ -19,18 +19,18 @@ const validatecollage = async function(req, res, next) {
             return res.status(400).send({ msg: "Mandatory field Missing!!" })
         }
 
-        if (Object.values(name).length <= 0) {
+        if(!/^([a-zA-Z]+)$/.test(data.name)) {
             return res.status(400).send("The name is required");
         }
         let collageName = await collageModel.findOne({ name: name })
         if (collageName) {
-            return res.status(400).send("This Name is already exists");
+            return res.status(400).send("This Name is already exists"); 
         }
         if (Object.values(fullName).length <= 0) {
             return res.status(400).send("The fullName is required");
         }
-        if (Object.values(logoLink).length <= 0) {
-            return res.status(400).send("The logoLink is required");
+        if (!/^(ftp|http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-/]))?$/.test(data.logoLink)) {
+            return res.status(400).send("The logoLink is not valid");
         } else {
             next()
         }
